@@ -35,7 +35,7 @@ app.post("/api/taskapp/AddTasks", multer().none(), (req, res) => {
       id: (numOfDocs + 1).toString(),
       description: req.body.newNotes,
     });
-    response.json("Task Added Successfully");
+    res.json("Task Added Successfully");
   });
 });
 
@@ -43,5 +43,5 @@ app.delete("/api/taskapp/DeleteTasks", (req, res) => {
   database.collection("taskappcollection").deleteOne({
     id: req.query.id,
   });
-  response.json("Task Deleted Successfully");
+  res.json("Task Deleted Successfully");
 });
